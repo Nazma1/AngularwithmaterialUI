@@ -1,0 +1,27 @@
+<button class="button" ng-click="loadAllDetails()">
+    Display</button>
+<div class="container">
+    <!--  <div class="col-xs-12" -->>
+    <div class="table-responsive">
+        <table class=" table table-striped">
+            <thead>
+                <tr ng-repeat="order in data" ng-if="$first">
+                    <th ng-repeat="(key,val) in order">{{key}}</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="order in data ">
+                    <td ng-repeat="(key,val) in order">{{val}}</td>
+                    <td><a ui-sref="edit({id:order.id})"><span class="glyphicon btn btn-danger  glyphicon-edit"></span></a></td>
+                    <td>
+                        <button type="button" ng-model="mdlRemove"><span class="glyphicon  btn btn-danger glyphicon-trash" ng-click="removeData(order.id)"></span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- </div>
+ -->
+    </div>
+</div>

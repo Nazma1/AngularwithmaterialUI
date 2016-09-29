@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/angular-material/angular-material.css" rel="stylesheet">
+    <link href="styles/app.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+</head>
+
+<body ng-app="crudModule" layout="column" ng-controller="viewController as vm">
+    <md-toolbar layout="row">
+        <md-button class="menu" ng-click="vm.toggleList()" hide-gt-sm aria-label="Show nav menu">
+            <md-icon md-svg-src="downloads/menu.svg"></md-icon>
+        </md-button>
+        <h1>Student DataBase</h1>
+        <md-button class="share" md-no-ink aria-label="Show apps icon">
+            <md-icon md-svg-src="downloads/apps.svg"></md-icon>
+        </md-button>
+        <md-button class="share" md-no-ink aria-label="Show share icon">
+            <md-icon md-svg-src="downloads/share.svg"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <div layout="row" flex>
+        <md-sidenav ng-click="vm.toggleList()" layout="column" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+            <md-list>
+                <md-list-item ng-repeat="it in vm.views">
+                    <md-button>
+                        <md-icon md-svg-icon="{{it.avatar}}" aria-label="menu"></md-icon>
+                        {{it.name}}
+                    </md-button>
+                </md-list-item>
+            </md-list>
+            <md-list>
+                <md-button ui-sref="graphpage1">Graph
+                    <md-icon md-svg-src="downloads/share.svg"></md-icon>
+                </md-button>
+            </md-list>
+        </md-sidenav>
+        <md-content flex id="content" class="md-padding">
+            <div ui-view="header"></div>
+            <div class="container">
+                <div ui-view="content"></div>
+            </div>
+            <md-button class="share" md-no-ink aria-label="Show more icon">
+                <md-icon md-svg-src="downloads/more.svg"></md-icon>
+            </md-button>
+        </md-content>
+    </div>
+    <div layout="row" id="footer">
+        <div ui-view="footer"></div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v3.min.js"></script>
+ -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="views/views.js"></script>
+    <script src="views/viewService.js"></script>
+    <script src="views/viewController.js"></script>
+    <script src="includes/js/app.js"></script>
+    <script src="includes/js/services.js"></script>
+    <script src="controllers/addController.js"></script>
+    <script src="controllers/searchController.js"></script>
+    <script src="controllers/paginationCtrl.js"></script>
+    <script src="views/barGraphDi.js"></script>
+</body>
+
+</html>

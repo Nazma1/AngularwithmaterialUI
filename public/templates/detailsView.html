@@ -1,0 +1,38 @@
+<form name="myform" class="form-horizontal">
+    <div class="form-group">
+        <label for="txtName" class="col-lg-2 control-label">Name(required)</label>
+        <div class="col-lg-10">
+            <input type="text" ng-model="order.name" class="form-control" aria-describedby="name-format" required="true" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" title="firstname lastname">
+        </div>
+        <!--  binding with the order -->
+    </div>
+    <div class="form-group">
+        <label for="txtGender" class="col-lg-2 control-label">gender</label>
+        <div class="col-lg-10">
+            <input class="form-control" ng-model="order.gender" placeholder="gender" rows="3" required="true" title="male or female">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtAge" class="col-lg-2 control-label">Age</label>
+        <div class="col-lg-10">
+            <input type="number" ng-model="order.age" class="form-control" rows="3" required="true">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtCompany" class="col-lg-2 control-label">Company</label>
+        <div class="col-lg-10">
+            <input class="form-control" ng-model="order.company" rows="3" required="true" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtEmail" class="col-lg-2 control-label">Email</label>
+        <div class="col-lg-10">
+            <input class="form-control" ng-model="order.email" type="email" rows="3" required="true" />
+        </div>
+    </div>
+    <div>
+        <button ng-click="mdlSave($scope.data)" id="btnSave" type="submit">Save</button>
+        <button id="btnUpdate" ng-click="mdlUpdate(order.id,order)" type="submit">Update</button>
+        <a href="/" role="button" class="btn btn-primary" data-dismiss="form">Cancel</a>
+    </div>
+</form>
